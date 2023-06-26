@@ -1,0 +1,18 @@
+public static int findFirstNonRepeatingCharIndex(String str) {
+        int[] charCounts = new int[26]; 
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            charCounts[c - 'a']++;
+        }
+        
+        // Find the first non-repeating character
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (charCounts[c - 'a'] == 1) {
+                return i;
+            }
+        }
+        
+        return -1; // No non-repeating character found
+    }
